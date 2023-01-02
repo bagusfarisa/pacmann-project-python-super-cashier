@@ -45,5 +45,3 @@ print()
 trnsct_123.show_order_table()
 print()
 trnsct_123.total_price()
-
-# Apakah show_order_table() sebaiknya tidak disatukan dengan method_method yang lain, ya?
