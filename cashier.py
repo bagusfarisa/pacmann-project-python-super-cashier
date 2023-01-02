@@ -2,7 +2,7 @@ class Transaction:
     '''
     Attributes
     ----------
-    order_items = {}
+    transaction = {}
         Dictionary containing the items ordered for the transaction.
     
     Methods
@@ -38,25 +38,19 @@ class Transaction:
         Check whether a transaction will be dicounted or not.
     '''
     
-    order_items = {}
+    transaction = {}
     
     # Method to iniate the class object containing an "order" dictionary
     def __init__(self):
-        self.order = self.order_items
+        self.order_items = self.transaction
         
     
     # Method to display the shopping items and price as a table
-    def show_order_table(self, order_items):
+    def show_order_table(self):
         '''
         Show the list of the items ordered for the transaction as a table.
-        
-        Parameters
-        ----------
-            order_items : dict
-                dict of items ordered for the transaction
         '''
         
-        self.order = order_items
         self.column_spacing = "|{:<4}|{:<12}|{:>12}|{:>12}|{:>12}|"
     
         # Print the table header
@@ -64,7 +58,7 @@ class Transaction:
         
         n = 1
         
-        for key, value in self.order.items():
+        for key, value in self.order_items.items():
             no = n 
             item_name = key
             item_qty = value[0]
@@ -95,10 +89,9 @@ class Transaction:
         try:
             self.item_qty = int(item_qty)
             self.item_price = int(item_price)
-            self.order[self.item_name] = [self.item_qty, self.item_price]
+            self.order_items[self.item_name] = [self.item_qty, self.item_price]
         except:
             print("Tidak dapat menambahkan item. \nJumlah dan harga item harus berupa angka.\n")
-        self.show_order_table(self.order) # Show the order table
         
         
     # Method to change the key name of an order item
@@ -118,11 +111,10 @@ class Transaction:
         self.new_item_name = str(new_item_name)
         
         try:
-            self.order[self.new_item_name] = self.order[self.item_name] # Duplicate the values of the old key to the new one
-            del self.order[self.item_name] # Delete the old key
+            self.order_items[self.new_item_name] = self.order_items[self.item_name] # Duplicate the values of the old key to the new one
+            del self.order_items[self.item_name] # Delete the old key
         except:
             print("Gagal mengubah nama item. \nNama item tidak ditemukan\n")
-        self.show_order_table(self.order) # Show the order table
         
     
     # Method to change the quantity of an order item
@@ -143,13 +135,12 @@ class Transaction:
         try:
             self.new_item_qty = int(new_item_qty)
             try:
-                self.order[self.item_name][0] = self.new_item_qty
+                self.order_items[self.item_name][0] = self.new_item_qty
                 
             except:
                 print("Gagal mengubah jumlah item. \nNama item tidak ditemukan.\n")
         except:
             print("Jumlah item harus berupa angka.\n")
-        self.show_order_table(self.order) # Show the order table
         
     
     # Method to change the price of an order item
@@ -170,12 +161,11 @@ class Transaction:
         try:
             self.new_item_price = int(new_item_price)
             try:
-                self.order[self.item_name][1] = self.new_item_price
+                self.order_items[self.item_name][1] = self.new_item_price
             except:
                 print("Gagal mengubah harga. \nNama item tidak ditemukan.\n")
         except:
             print("Harga item harus berupa angka.\n")
-        self.show_order_table(self.order) # Show the order table
         
         
     
@@ -191,10 +181,9 @@ class Transaction:
         '''
         self.item_name = str(item_name)
         try:
-            del self.order[self.item_name]
+            del self.order_items[self.item_name]
         except:
             print("Gagal menghapus item. \nNama item tidak ditemukan.\n")
-        self.show_order_table(self.order) # Show the order table
         
         
     
@@ -203,17 +192,16 @@ class Transaction:
         '''
         Delete all the items in the transaction.
         '''
-        order_items = {}
-        self.order = order_items
+        transaction = {}
+        self.order_items = transaction
         print("Semua item berhasil dihapus.\n")
-        self.show_order_table(self.order) # Show the order table
     
     
     def check_order(self):
         '''
         Check whether the values inputted to the order items are correct or not.
         '''
-        for key, value in self.order.items():
+        for key, value in self.order_items.items():
             item_name = key
             item_qty = value[0]
             item_price = value[1]
@@ -244,7 +232,7 @@ class Transaction:
         Check the total price of all order items of the transaction.
         '''
         self.total_price = 0
-        for value in self.order.values():
+        for value in self.order_items.values():
             item_qty = value[0]
             item_price = value[1]
             self.total_price += (item_qty * item_price)
