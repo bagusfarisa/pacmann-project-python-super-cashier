@@ -2,7 +2,7 @@ class Transaction:
     '''
     Attributes
     ----------
-    transaction = {}
+    order_items = {}
         Dictionary containing the items ordered for the transaction.
     
     Methods
@@ -38,11 +38,12 @@ class Transaction:
         Check whether a transaction will be dicounted or not.
     '''
     
-    transaction = {}
-    
     # Method to iniate the class object containing an "order" dictionary
     def __init__(self):
-        self.order_items = self.transaction
+        '''
+        Initialize the Class attribute
+        '''
+        self.order_items = {}
         
     
     # Method to display the shopping items and price as a table
