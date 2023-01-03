@@ -1,41 +1,7 @@
 class Transaction:
     '''
-    Attributes
-    ----------
-    order_items = {}
-        Dictionary containing the items ordered for the transaction.
-    
-    Methods
-    --------
-    show_order_table(order_items): 
-        Show the list of items ordered as a table.
-        
-    add_item(item_name, item_qty, item_price):
-        Add an item to the transaction.
-
-    update_item_name(item_name, new_item_name): 
-        Update the name of an item.
-
-    update_item_qty(item_name, new_item_qty): 
-        Update the quantity of an item.
-        
-    update_item_price(item_name, new_item_price): 
-        Update the price of an item.
-    
-    delete_item(item_name): 
-        Delete an item by its name.
-        
-    reset_transaction(): 
-        Delete all the items in the transaction.
-
-    check_order(): 
-        Check whether the values inputted to the transaction are correct or not.
-    
-    total_price(): 
-        Check the total price of all items ordered for the transaction.
-    
-    is_discounted(total_price): 
-        Check whether a transaction will be dicounted or not.
+    Attributes:
+        order_items (dict): Dictionary containing the items ordered for the transaction.
     '''
     
     # Method to iniate the class object containing an "order" dictionary
@@ -75,16 +41,10 @@ class Transaction:
         '''
         Add an item to the transaction.
         
-        Parameters
-        ----------
-            item_name : str
-                name of the item
-                
-            item_qty : int
-                quantity of the item
-                
-            item_price : int
-                unit price of the item
+        Args:
+            item_name (str): Name of the item
+            item_qty (int): Quantity of the item
+            item_price (int): Unit price of the item
         '''
         self.item_name = str(item_name)
         try:
@@ -100,13 +60,9 @@ class Transaction:
         '''
         Update the name of an item.
         
-        Parameters
-        ----------
-            item_name : str
-                name of the item to be replaced
-                
-            new_item_name : str
-                new name of the item
+        Args:
+            item_name (str): Name of the item to be replaced
+            new_item_name (str): New name of the item
         '''
         self.item_name = str(item_name)
         self.new_item_name = str(new_item_name)
@@ -123,13 +79,9 @@ class Transaction:
         '''
         Update the quantity of an item.
         
-        Parameters
-        ----------
-            item_name : str
-                name of the item which the quantity to be changed
-                
-            new_item_qty : int
-                the new quantity assigned to the item.
+        Args:
+            item_name (str): Name of the item
+            new_item_qty (int): The item's new quantity
         '''
         self.item_name = str(item_name)
         
@@ -149,13 +101,9 @@ class Transaction:
         '''
         Update the price of an order item.
         
-        Parameters
-        ----------
-            item_name : str
-                name of the item which the quantity to be changed
-                
-            new_item_qty : int
-                the new quantity assigned to the item.
+        Args:
+            item_name (str): Name of the item to be changed
+            new_item_qty (int): The item's new quantity
         '''
         self.item_name = str(item_name)
         
@@ -175,10 +123,8 @@ class Transaction:
         '''
         Delete an item by its name.
         
-        Parameters
-        ----------
-            item_name : str
-                Item name you want to delete.
+        Args:
+            item_name (str): Item name you want to delete.
         '''
         self.item_name = str(item_name)
         try:
@@ -192,6 +138,9 @@ class Transaction:
     def reset_transaction(self):
         '''
         Delete all the items in the transaction.
+
+        Args:
+            None
         '''
         transaction = {}
         self.order_items = transaction
@@ -231,6 +180,9 @@ class Transaction:
     def total_price(self):
         '''
         Check the total price of all order items of the transaction.
+
+        Args:
+            None
         '''
         self.total_price = 0
         for value in self.order_items.values():
@@ -246,10 +198,8 @@ class Transaction:
         '''
         Check whether a transaction will be dicounted or not.
         
-        Parameters
-        ----------
-            total_price : int
-                The total price of the transaction.
+        Args:
+            total_price (int): The total price of the transaction.
         '''
         self.total_price = total_price
         if self.total_price > 500000:
