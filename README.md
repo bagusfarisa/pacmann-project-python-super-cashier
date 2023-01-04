@@ -3,13 +3,11 @@
 ## A. Project Bacground
 A supermarket owner needs to improve his supermarket's business process.<br />
 To do that, he wants to provide his customers a self-service cashier app.
-
 <br />
 
 ## B. Objectives and Requirements
 ### 1. Objectives
-The supermarket customers can see the total amount of their transaction by inputting the item information to the order list.
-
+The supermarket customers can see the total amount of their transaction by inputting the items information to the order list.
 <br />
 
 ### 2. Requirements
@@ -22,13 +20,11 @@ The cashier app is able to:
 6. Delete an item based on its name
 7. Reset the transaction data, erasing all items in order list
 8. Check whether the item data inputted is correct
-9. See the total price of all items in order list
-
+9. Show the total price of all items in order list
 <br />
 
 ## C. Program Flowchart
 INSERT FLOWCHART HERE
-
 <br />
 
 ## D. Code Snippets
@@ -89,7 +85,7 @@ def update_item_name(self, item_name, new_item_name):
         self.new_item_name = str(new_item_name)
         
         try:
-            self.order_items[self.new_item_name] = self.order_items[self.item_name] # Duplicate the values of the old key to the new one
+            self.order_items[self.new_item_name] = self.order_items[self.item_name]
             del self.order_items[self.item_name] # Delete the old key
         except:
             print("Gagal mengubah nama item. \nNama item tidak ditemukan\n")
