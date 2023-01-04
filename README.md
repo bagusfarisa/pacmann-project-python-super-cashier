@@ -1,4 +1,4 @@
-# Pacmann Python Project: Super Cashier App
+# Pacmann Project: Super Cashier App
 
 ## A. Project Bacground
 A supermarket owner needs to improve his supermarket's business process.<br />
