@@ -1,13 +1,15 @@
-# Pacmann Python Project: Super Cashier Module
+# Pacmann Python Project: Super Cashier App
 
 ## A. Project Bacground
-Andy, the client, needs to improve his supermarket's business process.<br />
-He wants to provide his customers a self-service app where the they can:
+A supermarket owner needs to improve his supermarket's business process.<br />
+To do that, he wants to provide his customers a self-service cashier app.
+
 <br />
 
 ## B. Objectives and Requirements
 ### 1. Objectives
-The supermarket customers need to be able to
+The supermarket customers can see the total amount of their transaction by inputting the item information to the order list.
+
 <br />
 
 ### 2. Requirements
@@ -21,10 +23,13 @@ The cashier app is able to:
 7. Reset the transaction data, erasing all items in order list
 8. Check whether the item data inputted is correct
 9. See the total price of all items in order list
+
 <br />
 
 ## C. Program Flowchart
 INSERT FLOWCHART HERE
+
+<br />
 
 ## D. Code Snippets
 ### 1. Transaction Class
@@ -33,6 +38,7 @@ class Transaction:
     def __init__(self):
         self.order_items = {}
 ```
+
 <br />
 
 ### 2. add_item() Method
@@ -46,6 +52,7 @@ def add_item(self, item_name, item_qty, item_price):
         except:
             print("Tidak dapat menambahkan item. \nJumlah dan harga item harus berupa angka.\n")
 ```
+
 <br />
 
 ### 3. show_order_table() Method
@@ -72,6 +79,7 @@ def show_order_table(self):
             item_price, amount))
         n += 1
 ```
+
 <br />
 
 ### 4. update_item_name() Method
@@ -87,6 +95,7 @@ def update_item_name(self, item_name, new_item_name):
             print("Gagal mengubah nama item. \nNama item tidak ditemukan\n")
     
 ```
+
 <br />
 
 ### 5. update_item_qty() Method
@@ -104,6 +113,7 @@ def update_item_qty(self, item_name, new_item_qty):
         except:
             print("Jumlah item harus berupa angka.\n")
 ```
+
 <br />
 
 ### 6. update_item_qty() Method
@@ -120,6 +130,7 @@ def update_item_price(self, item_name, new_item_price):
     except:
         print("Harga item harus berupa angka.\n")
 ```
+
 <br />
 
 ### 7. delete_item() Method
@@ -131,6 +142,7 @@ def delete_item(self, item_name):
     except:
         print("Gagal menghapus item. \nNama item tidak ditemukan.\n")
 ```
+
 <br />
 
 ### 8. reset_transaction() Method
@@ -140,6 +152,7 @@ def reset_transaction(self):
     self.order_items = transaction
     print("Semua item berhasil dihapus.\n")
 ```
+
 <br />
 
 ### 9. check_order() Method
@@ -168,6 +181,7 @@ def check_order(self):
             else:
                 pass
 ```
+
 <br />
 
 ### 10. total_price() Method
@@ -190,6 +204,7 @@ def total_price(self):
         print(f"Total belanja Anda: Rp{self.total_price}.")
         print("Belanja di atas Rp200.000 untuk mendapat diskon.")
 ```
+
 <br />
 
 ### 11. is_discounted() Method
@@ -211,6 +226,7 @@ def is_discounted(self, total_price):
 
     return is_discounted, discount
 ```
+
 <br />
 
 ## E. Test Cases
@@ -219,6 +235,7 @@ def is_discounted(self, total_price):
 import cashier
 trnsct_123 = cashier.Transaction()
 ```
+
 <br />
 
 ### 2. Add a new item
@@ -237,6 +254,7 @@ The output:
 |No  |Nama Item   | Jumlah Item|  Harga/Item| Harga Total|
 |1   |Ayam Goreng |           2|       20000|       40000|
 ```
+
 <br />
 
 ### 4. Update item name
@@ -255,6 +273,7 @@ The output:
 |No  |Nama Item   | Jumlah Item|  Harga/Item| Harga Total|
 |1   |Pasta Gigi  |           2|       20000|       40000|
 ```
+
 <br />
 
 ### 5. Update item quantity
@@ -273,6 +292,7 @@ The output:
 |No  |Nama Item   | Jumlah Item|  Harga/Item| Harga Total|
 |1   |Pasta Gigi  |           4|       20000|       80000|
 ```
+
 <br />
 
 ### 6. Update item price
@@ -291,6 +311,7 @@ The output:
 |No  |Nama Item   | Jumlah Item|  Harga/Item| Harga Total|
 |1   |Pasta Gigi  |           4|       15000|       60000|
 ```
+
 <br />
 
 ### 8. Delete item
@@ -320,6 +341,7 @@ The output:
 |2   |Mainan Mobil|           1|      200000|      200000|
 |3   |Mie Instant |           5|        3000|       15000|
 ```
+
 <br />
 
 ### 9. Reset transaction (Clear all items)
@@ -351,6 +373,7 @@ The output:
 ```
 |No  |Nama Item   | Jumlah Item|  Harga/Item| Harga Total|
 ```
+
 <br />
 
 ### 10. Check the items data status
@@ -375,6 +398,7 @@ The output:
 [v] Mainan Mobil: data sudah sesuai.
 [v] Mie Instant : data sudah sesuai.
 ```
+
 <br />
 
 ### 11. Check the total price of All the items ordered
@@ -398,6 +422,7 @@ Total belanja Anda: Rp300000.
 Anda mendapat diskon 5.0%.
 Anda hanya perlu membayar: Rp285000.0.
 ```
+
 <br />
 
 **Author** Copyright (c) 2023 Bagus Guntur Farisa
