@@ -3,11 +3,13 @@
 ## A. Project Bacground
 A supermarket owner needs to improve his supermarket's business process.<br />
 To do that, he wants to provide his customers a self-service cashier app.
+
 <br />
 
 ## B. Objectives and Requirements
 ### 1. Objectives
 The supermarket customers can see the total amount of their transaction by inputting the items information to the order list.
+
 <br />
 
 ### 2. Requirements
@@ -21,10 +23,19 @@ The cashier app is able to:
 7. Reset the transaction data, erasing all items in order list
 8. Check whether the item data inputted is correct
 9. Show the total price of all items in order list
+
 <br />
 
 ## C. Program Flowchart
-INSERT FLOWCHART HERE
+Testing the Mermaid.js
+```mermaid
+  graph TD;
+      A-->B;
+      A-->C;
+      B-->D;
+      C-->D;
+```
+
 <br />
 
 ## D. Code Snippets
