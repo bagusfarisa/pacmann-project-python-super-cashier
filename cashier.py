@@ -21,8 +21,9 @@ class Transaction:
         self.column_spacing = "|{:<4}|{:<12}|{:>12}|{:>12}|{:>12}|"
     
         # Print the table header
-        print(self.column_spacing.format('No','Nama Item','Jumlah Item','Harga/Item','Harga Total'))
-        
+        print(self.column_spacing.format(
+            'No','Nama Item','Jumlah Item',
+            'Harga/Item','Harga Total'))
         n = 1
         
         for key, value in self.order_items.items():
@@ -31,8 +32,11 @@ class Transaction:
             item_qty = value[0]
             item_price = value[1]
             amount = item_qty * item_price
+
             # Print the defined variables
-            print(self.column_spacing.format(no, item_name, item_qty, item_price, amount))
+            print(self.column_spacing.format(
+                no, item_name, item_qty, 
+                item_price, amount))
             n += 1
         
     
@@ -46,7 +50,7 @@ class Transaction:
             item_qty (int): Quantity of the item
             item_price (int): Unit price of the item
         '''
-        self.item_name = str(item_name)
+        self.item_name = str(item_name).title()
         try:
             self.item_qty = int(item_qty)
             self.item_price = int(item_price)
@@ -190,7 +194,16 @@ class Transaction:
             item_price = value[1]
             self.total_price += (item_qty * item_price)
             
-        self.is_discounted(self.total_price)
+        is_discounted, discount = self.is_discounted(self.total_price)
+        self.final_price = self.total_price * (1 - discount)
+
+        if is_discounted == True:
+            print(f"Total belanja Anda: Rp{self.total_price}.")
+            print(f"Anda mendapat diskon {discount * 100}%.")
+            print(f"Anda hanya perlu membayar: Rp{self.final_price}.")
+        else:
+            print(f"Total belanja Anda: Rp{self.total_price}.")
+            print("Belanja di atas Rp200.000 untuk mendapat diskon.")
         
     
     # Method to check whether a transaction gets a discount or not
@@ -200,27 +213,23 @@ class Transaction:
         
         Args:
             total_price (int): The total price of the transaction.
+
+        Returns:
+            is_discounted (bool): The status of the discount
+            discount (float): The discount rate.
         '''
         self.total_price = total_price
         if self.total_price > 500000:
             is_discounted = True
-            discount = "10%"
-            discounted_price = total_price * (1 - 0.1)
+            discount = 0.1
         elif total_price > 300000:
             is_discounted = True
-            discount = "8%"
-            discounted_price = total_price * (1 - 0.08)
+            discount = 0.08
         elif total_price > 200000:
             is_discounted = True
-            discount = "5%"
-            discounted_price = total_price * (1 - 0.05)
+            discount = 0.05
         else:
             is_discounted = False
-        
-        if is_discounted == True:
-            print(f"Total belanja Anda: Rp{total_price}.")
-            print(f"Anda mendapat diskon {discount}.")
-            print(f"Anda hanya perlu membayar: Rp{discounted_price}.")
-        else:
-            print(f"Total belanja Anda: Rp{total_price}.")
-            print("Belanja di atas Rp200.000 untuk mendapat diskon.")
+            discount = 0.0
+
+        return is_discounted, discount
