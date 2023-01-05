@@ -36,12 +36,12 @@ The cashier module is able to:
     D -- No --> E{Update the items in the list?}
     E -- No --> F(Check order)
     
-    E -- Yes --> G0(Edit the order list)
+    E -- Yes --> G0(Edit the items)
     G0 --> G1(Update an item name)
     G0 --> G2(Update an item quantity)
     G0 --> G3(Update an item price)
     G0 --> G4(Delete an item)
-    G0 --> G5(Reset the transaction)
+    G0 --> G5(Reset the transaction,<br/>deleting all items)
     G6{Finished editing?}
 
     G1 --> G6
@@ -55,9 +55,9 @@ The cashier module is able to:
     F --> H{All data correct?}
     H -- Yes --> I(Calculate total price)
     H -- No --> E
-    I --> J(Is discounted?)
+    I --> J{Is discounted?}
     J -- No --> K1(Show total price)
-    J -- Yes --> K2(Show initial total price, <br/> amount of discount, and final price)
+    J -- Yes --> K2(Show initial total price, <br/> amount of discount, and the final price)
     L((End))
     K1 --> L
     K2 --> L
