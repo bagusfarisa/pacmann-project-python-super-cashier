@@ -218,18 +218,17 @@ def total_price(self):
 ```python
 def is_discounted(self, total_price):
     self.total_price = total_price
-    if self.total_price > 500000:
-        is_discounted = True
-        discount = 0.1
-    elif total_price > 300000:
-        is_discounted = True
-        discount = 0.08
-    elif total_price > 200000:
-        is_discounted = True
-        discount = 0.05
-    else:
+    if self.total_price <= 200000:
         is_discounted = False
         discount = 0.0
+    else:
+        is_discounted = True
+        if self.total_price > 500000:
+            discount = 0.1
+        elif total_price > 300000:
+            discount = 0.08
+        elif total_price > 200000:
+            discount = 0.05
 
     return is_discounted, discount
 ```

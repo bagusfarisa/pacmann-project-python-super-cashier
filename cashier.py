@@ -212,24 +212,23 @@ class Transaction:
         Check whether a transaction will be dicounted or not.
         
         Args:
-            total_price (int): The total price of the transaction.
+            total_price (int): The total price of the transaction
 
         Returns:
             is_discounted (bool): The status of the discount
-            discount (float): The discount rate.
+            discount (float): The discount rate
         '''
         self.total_price = total_price
-        if self.total_price > 500000:
-            is_discounted = True
-            discount = 0.1
-        elif total_price > 300000:
-            is_discounted = True
-            discount = 0.08
-        elif total_price > 200000:
-            is_discounted = True
-            discount = 0.05
-        else:
+        if self.total_price <= 200000:
             is_discounted = False
             discount = 0.0
+        else:
+            is_discounted = True
+            if self.total_price > 500000:
+                discount = 0.1
+            elif total_price > 300000:
+                discount = 0.08
+            elif total_price > 200000:
+                discount = 0.05
 
         return is_discounted, discount
