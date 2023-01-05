@@ -75,6 +75,7 @@ class Transaction:
     def __init__(self):
         self.order_items = {}
 ```
+By initializing the Transaction Class, it will create a dictionary which will contain the order items information.
 
 <br />
 
@@ -89,6 +90,12 @@ def add_item(self, item_name, item_qty, item_price):
         except:
             print("Tidak dapat menambahkan item. \nJumlah dan harga item harus berupa angka.\n")
 ```
+Input item name, quantity, and price as arguments for this method.
+<br />
+it will store the item name as a key and its quantity and price as value to the transaction dictionary.
+<br />
+
+If the arguments type are incorrect, the items will not be added and will show an error message instead.
 
 <br />
 
@@ -116,6 +123,10 @@ def show_order_table(self):
             item_price, amount))
         n += 1
 ```
+This methods shows the items inside the transaction dictionary as a table. 
+<br />
+
+On the other hand, this method also calculates and displays the total amount of each items based on its quantity and price.
 
 <br />
 
@@ -132,7 +143,10 @@ def update_item_name(self, item_name, new_item_name):
             print("Gagal mengubah nama item. \nNama item tidak ditemukan\n")
     
 ```
+asdfadsf
+<br />
 
+asdfadsf
 <br />
 
 ### 5. update_item_qty() Method
