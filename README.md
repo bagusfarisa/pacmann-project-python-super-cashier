@@ -13,8 +13,8 @@ The supermarket customers can see the total amount of their transaction by input
 <br />
 
 ### 2. Requirements
-The cashier app is able to:
-1. Create an object containing all items in order list
+The cashier module is able to:
+1. Create a transaction ID containing all items in order list
 2. Add an item, its quantity, and its price to the order list 
 3. Update the name of an item
 4. Update the quantity of an item
@@ -27,14 +27,44 @@ The cashier app is able to:
 <br />
 
 ## C. Program Flowchart
-Testing the Mermaid.js
 ```mermaid
-  graph TD;
-      A-->B;
-      A-->C;
-      B-->D;
-      C-->D;
+  graph TB
+    A((Start)) --> B(Create a transaction ID) 
+    B --> C(Add a new item to order list)
+    C --> D{Add another item?}
+    D -- Yes --> C
+    D -- No --> E{Update the items in the list?}
+    E -- No --> F(Check order)
+    
+    E -- Yes --> G0(Edit the order list)
+    G0 --> G1(Update an item name)
+    G0 --> G2(Update an item quantity)
+    G0 --> G3(Update an item price)
+    G0 --> G4(Delete an item)
+    G0 --> G5(Reset the transaction)
+    G6{Finished editing?}
+
+    G1 --> G6
+    G2 --> G6
+    G3 --> G6
+    G4 --> G6
+    G5 --> C
+    G6 -- Yes --> F
+    G6 -- No --> G0
+
+    F --> H{All data correct?}
+    H -- Yes --> I(Calculate total price)
+    H -- No --> E
+    I --> J(Is discounted?)
+    J -- No --> K1(Show total price)
+    J -- Yes --> K2(Show initial total price, <br/> amount of discount, and final price)
+    L((End))
+    K1 --> L
+    K2 --> L
+
 ```
+
+
 
 <br />
 
@@ -236,7 +266,7 @@ def is_discounted(self, total_price):
 <br />
 
 ## E. Test Cases
-### 1. Import and Initialize the Module
+### 1. Import the Module and Create a new Transaction ID
 ```python
 import cashier
 trnsct_123 = cashier.Transaction()
