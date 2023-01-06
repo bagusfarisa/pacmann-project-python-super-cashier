@@ -1,4 +1,4 @@
-# Pacmann Project: Super Cashier App
+# Python Project: Super Cashier App
 
 ## A. Project Bacground
 A supermarket owner needs to improve his supermarket's business process.<br />
@@ -143,10 +143,10 @@ def update_item_name(self, item_name, new_item_name):
             print("Gagal mengubah nama item. \nNama item tidak ditemukan\n")
     
 ```
-asdfadsf
+Update the name of an item in the list by providing the item name and its new name as the arguments to this method. 
 <br />
 
-asdfadsf
+This method will give an error message if the item name inputted isn't found in the order list.
 <br />
 
 ### 5. update_item_qty() Method
@@ -164,7 +164,10 @@ def update_item_qty(self, item_name, new_item_qty):
         except:
             print("Jumlah item harus berupa angka.\n")
 ```
+Update the quantity of an item in the list by providing the item name and its new quantity as the arguments to this method. 
+<br />
 
+This method will give an error message if the item name inputted isn't found in the order list.
 <br />
 
 ### 6. update_item_qty() Method
@@ -181,7 +184,10 @@ def update_item_price(self, item_name, new_item_price):
     except:
         print("Harga item harus berupa angka.\n")
 ```
+Update the price of an item in the list by providing the item name and its new item price as the arguments to this method. 
+<br />
 
+This method will give an error message if the item name inputted isn't found in the order list.
 <br />
 
 ### 7. delete_item() Method
@@ -193,7 +199,10 @@ def delete_item(self, item_name):
     except:
         print("Gagal menghapus item. \nNama item tidak ditemukan.\n")
 ```
+Delete an item in the order list by providing the name of the item as the argument to this method. 
+<br />
 
+This method will give an error message if the item name inputted isn't found in the order list.
 <br />
 
 ### 8. reset_transaction() Method
@@ -203,7 +212,10 @@ def reset_transaction(self):
     self.order_items = transaction
     print("Semua item berhasil dihapus.\n")
 ```
+This method will reset the transaction, deleting all items inside the order list, left it as an empty dictionary. 
+<br />
 
+When the process is done, it will give a success message.
 <br />
 
 ### 9. check_order() Method
@@ -232,7 +244,13 @@ def check_order(self):
             else:
                 pass
 ```
+This method will check whether the item inputted into the order list has certain data types.
+<br />
 
+It will show a success message if the key and the values of the item is in expected data type.
+<br />
+
+On the other hand, it will show an error message if the key or value of the item is not in certain data type.
 <br />
 
 ### 10. total_price() Method
@@ -255,7 +273,10 @@ def total_price(self):
         print(f"Total belanja Anda: Rp{self.total_price}.")
         print("Belanja di atas Rp200.000 untuk mendapat diskon.")
 ```
+This method calculates the sum of the amount of each item in the order list.
+<br />
 
+It will also show how much the customer will pay after the discount (if applicable).
 <br />
 
 ### 11. is_discounted() Method
@@ -276,7 +297,10 @@ def is_discounted(self, total_price):
 
     return is_discounted, discount
 ```
+Based on the total price inputted as argument, this method will confirm whether a transacation will get a discount or not. It will decide how much discount the transaction is going to get.
+<br />
 
+This method returns the discount status (boolean) and the discount rate (float).
 <br />
 
 ## E. Test Cases
