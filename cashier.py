@@ -27,9 +27,10 @@ class Transaction:
             'Harga/Item','Harga Total']
         order_table.append(table_header)
     
-        n = 1
+        n = 0
         
         for key, value in self.order_items.items():
+            n += 1
             table_no = n 
             item_name = key
             item_qty = value[0]
@@ -42,7 +43,7 @@ class Transaction:
 
             # Append the list into the order list
             order_table.append(item_data)
-            n += 1
+            
         
         # Print out the table using Tabulate module
         print(tabulate(order_table, headers="firstrow"))

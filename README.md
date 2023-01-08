@@ -102,15 +102,16 @@ If the arguments type are incorrect, the items will not be added and will show a
 ### 3. show_order_table() Method
 ```python
 def show_order_table(self):
-        order_table = []
+        order_table = [] # Define the order table as a list
 
         table_header = ['No','Nama Item','Jumlah Item',
-            'Harga/Item','Harga Total']
-        order_table.append(table_header)
+            'Harga/Item','Harga Total'] # Define the header texts
+        order_table.append(table_header) # Append the header to the list
     
-        n = 1
+        n = 0
         
         for key, value in self.order_items.items():
+            n += 1
             table_no = n 
             item_name = key
             item_qty = value[0]
@@ -120,9 +121,9 @@ def show_order_table(self):
             item_data = [table_no, item_name, item_qty, 
                         item_price, amount]
 
-            order_table.append(item_data)
-            n += 1
+            order_table.append(item_data) # Append the item data into the table list
         
+        # Print the table
         print(tabulate(order_table, headers="firstrow"))
 ```
 This methods shows the items inside the transaction dictionary as a table using the tabulate module. 
