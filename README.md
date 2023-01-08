@@ -331,8 +331,9 @@ trnsct_123.show_order_table()
 
 The output:
 ```
-|No  |Nama Item   | Jumlah Item|  Harga/Item| Harga Total|
-|1   |Ayam Goreng |           2|       20000|       40000|
+No  Nama Item      Jumlah Item    Harga/Item    Harga Total
+----  -----------  -------------  ------------  -------------
+   1  Ayam Goreng              2         20000          40000
 ```
 
 <br />
@@ -350,8 +351,9 @@ trnsct_123.show_order_table()
 
 The output:
 ```
-|No  |Nama Item   | Jumlah Item|  Harga/Item| Harga Total|
-|1   |Pasta Gigi  |           2|       20000|       40000|
+No  Nama Item      Jumlah Item    Harga/Item    Harga Total
+----  ----------  -------------  ------------  -------------
+   1  Pasta Gigi              2         20000          40000
 ```
 
 <br />
@@ -369,8 +371,9 @@ trnsct_123.show_order_table()
 
 The output:
 ```
-|No  |Nama Item   | Jumlah Item|  Harga/Item| Harga Total|
-|1   |Pasta Gigi  |           4|       20000|       80000|
+No  Nama Item      Jumlah Item    Harga/Item    Harga Total
+----  ----------  -------------  ------------  -------------
+   1  Pasta Gigi              4         20000          40000
 ```
 
 <br />
@@ -388,8 +391,9 @@ trnsct_123.show_order_table()
 
 The output:
 ```
-|No  |Nama Item   | Jumlah Item|  Harga/Item| Harga Total|
-|1   |Pasta Gigi  |           4|       15000|       60000|
+No  Nama Item      Jumlah Item    Harga/Item    Harga Total
+----  ----------  -------------  ------------  -------------
+   1  Pasta Gigi              4         15000          40000
 ```
 
 <br />
@@ -397,11 +401,12 @@ The output:
 ### 8. Delete item
 Given your order list consisting these items:
 ```
-|No  |Nama Item   | Jumlah Item|  Harga/Item| Harga Total|
-|1   |Ayam Goreng |           2|       20000|       40000|
-|2   |Pasta Gigi  |           3|       15000|       45000|
-|3   |Mainan Mobil|           1|      200000|      200000|
-|4   |Mie Instant |           5|        3000|       15000|
+  No  Nama Item       Jumlah Item    Harga/Item    Harga Total
+----  ------------  -------------  ------------  -------------
+   1  Ayam Goreng               2         20000          40000
+   2  Pasta Gigi                3         15000          45000
+   3  Mainan Mobil              1        200000         200000
+   4  Mie Instant               5          3000          15000
 ```
 
 Delete an item named "Pasta Gigi".
@@ -416,10 +421,11 @@ trnsct_123.show_order_table()
 
 The output:
 ```
-|No  |Nama Item   | Jumlah Item|  Harga/Item| Harga Total|
-|1   |Ayam Goreng |           2|       20000|       40000|
-|2   |Mainan Mobil|           1|      200000|      200000|
-|3   |Mie Instant |           5|        3000|       15000|
+  No  Nama Item       Jumlah Item    Harga/Item    Harga Total
+----  ------------  -------------  ------------  -------------
+   1  Ayam Goreng               2         20000          40000
+   2  Mainan Mobil              1        200000         200000
+   3  Mie Instant               5          3000          15000
 ```
 
 <br />
@@ -427,11 +433,12 @@ The output:
 ### 9. Reset transaction (Clear all items)
 Given your order list consisting these items:
 ```
-|No  |Nama Item   | Jumlah Item|  Harga/Item| Harga Total|
-|1   |Ayam Goreng |           2|       20000|       40000|
-|2   |Pasta Gigi  |           3|       15000|       45000|
-|3   |Mainan Mobil|           1|      200000|      200000|
-|4   |Mie Instant |           5|        3000|       15000|
+  No  Nama Item       Jumlah Item    Harga/Item    Harga Total
+----  ------------  -------------  ------------  -------------
+   1  Ayam Goreng               2         20000          40000
+   2  Pasta Gigi                3         15000          45000
+   3  Mainan Mobil              1        200000         200000
+   4  Mie Instant               5          3000          15000
 ```
 
 Reset the transaction.
@@ -451,7 +458,8 @@ trnsct_123.show_order_table()
 
 The output:
 ```
-|No  |Nama Item   | Jumlah Item|  Harga/Item| Harga Total|
+  No  Nama Item       Jumlah Item    Harga/Item    Harga Total
+----  ------------  -------------  ------------  -------------
 ```
 
 <br />
@@ -459,11 +467,12 @@ The output:
 ### 10. Check the items data status
 Given your order list consisting these items:
 ```
-|No  |Nama Item   | Jumlah Item|  Harga/Item| Harga Total|
-|1   |Ayam Goreng |           2|       20000|       40000|
-|2   |Pasta Gigi  |           3|       15000|       45000|
-|3   |Mainan Mobil|           1|      200000|      200000|
-|4   |Mie Instant |           5|        3000|       15000|
+  No  Nama Item       Jumlah Item    Harga/Item    Harga Total
+----  ------------  -------------  ------------  -------------
+   1  Ayam Goreng               2         20000          40000
+   2  Pasta Gigi                3         15000          45000
+   3  Mainan Mobil              1        200000         200000
+   4  Mie Instant               5          3000          15000
 ```
 
 Check whether the item datas inputted are okay or not.
@@ -484,11 +493,12 @@ The output:
 ### 11. Check the total price of All the items ordered
 Given your order list consisting these items:
 ```
-|No  |Nama Item   | Jumlah Item|  Harga/Item| Harga Total|
-|1   |Ayam Goreng |           2|       20000|       40000|
-|2   |Pasta Gigi  |           3|       15000|       45000|
-|3   |Mainan Mobil|           1|      200000|      200000|
-|4   |Mie Instant |           5|        3000|       15000|
+  No  Nama Item       Jumlah Item    Harga/Item    Harga Total
+----  ------------  -------------  ------------  -------------
+   1  Ayam Goreng               2         20000          40000
+   2  Pasta Gigi                3         15000          45000
+   3  Mainan Mobil              1        200000         200000
+   4  Mie Instant               5          3000          15000
 ```
 
 Check the total price of all the items and the final price you need to pay.
@@ -504,5 +514,3 @@ Anda hanya perlu membayar: Rp285000.0.
 ```
 
 <br />
-
-**Author** Copyright (c) 2023 Bagus Guntur Farisa
