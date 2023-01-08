@@ -1,3 +1,5 @@
+from tabulate import tabulate 
+
 class Transaction:
     '''
     Attributes:
@@ -17,28 +19,33 @@ class Transaction:
         '''
         Show the list of the items ordered for the transaction as a table.
         '''
-        
-        self.column_spacing = "|{:<4}|{:<12}|{:>12}|{:>12}|{:>12}|"
+        # Define the order table as a list
+        order_table = []
+
+        # Define the heade table
+        table_header = ['No','Nama Item','Jumlah Item',
+            'Harga/Item','Harga Total']
+        order_table.append(table_header)
     
-        # Print the table header
-        print(self.column_spacing.format(
-            'No','Nama Item','Jumlah Item',
-            'Harga/Item','Harga Total'))
         n = 1
         
         for key, value in self.order_items.items():
-            no = n 
+            table_no = n 
             item_name = key
             item_qty = value[0]
             item_price = value[1]
             amount = item_qty * item_price
 
-            # Print the defined variables
-            print(self.column_spacing.format(
-                no, item_name, item_qty, 
-                item_price, amount))
+            # Put the variables into an item data list 
+            item_data = [table_no, item_name, item_qty, 
+                        item_price, amount]
+
+            # Append the list into the order list
+            order_table.append(item_data)
             n += 1
         
+        # Print out the table using Tabulate module
+        print(tabulate(order_table, headers="firstrow"))
     
     # Method to add a new key and values to the transaction Dictionary
     def add_item(self, item_name, item_qty, item_price):

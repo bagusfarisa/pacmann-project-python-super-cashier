@@ -102,28 +102,30 @@ If the arguments type are incorrect, the items will not be added and will show a
 ### 3. show_order_table() Method
 ```python
 def show_order_table(self):
-    # Define table spacing
-    self.column_spacing = "|{:<4}|{:<12}|{:>12}|{:>12}|{:>12}|"
+        order_table = []
 
-    # Show header
-    print(self.column_spacing.format(
-        'No','Nama Item','Jumlah Item',
-        'Harga/Item','Harga Total'))
+        table_header = ['No','Nama Item','Jumlah Item',
+            'Harga/Item','Harga Total']
+        order_table.append(table_header)
     
-    # Show table content
-    n = 1
-    for key, value in self.order_items.items():
-        no = n 
-        item_name = key
-        item_qty = value[0]
-        item_price = value[1]
-        amount = item_qty * item_price
-        print(self.column_spacing.format(
-            no, item_name, item_qty, 
-            item_price, amount))
-        n += 1
+        n = 1
+        
+        for key, value in self.order_items.items():
+            table_no = n 
+            item_name = key
+            item_qty = value[0]
+            item_price = value[1]
+            amount = item_qty * item_price
+ 
+            item_data = [table_no, item_name, item_qty, 
+                        item_price, amount]
+
+            order_table.append(item_data)
+            n += 1
+        
+        print(tabulate(order_table, headers="firstrow"))
 ```
-This methods shows the items inside the transaction dictionary as a table. 
+This methods shows the items inside the transaction dictionary as a table using the tabulate module. 
 <br />
 
 On the other hand, this method also calculates and displays the total amount of each items based on its quantity and price.
@@ -303,8 +305,12 @@ Based on the total price inputted as argument, this method will confirm whether 
 This method returns the discount status (boolean) and the discount rate (float).
 <br />
 
-## E. Test Cases
-### 1. Import the Module and Create a new Transaction ID
+## E. How to use this module
+### 1. Import the requirements and the cashier module
+```
+pip install requirements.txt
+```
+
 ```python
 import cashier
 trnsct_123 = cashier.Transaction()
