@@ -173,7 +173,7 @@ Update the quantity of an item in the list by providing the item name and its ne
 This method will give an error message if the item name inputted isn't found in the order list.
 <br />
 
-### 6. update_item_qty() Method
+### 6. update_item_price() Method
 ```python
 def update_item_price(self, item_name, new_item_price):
     self.item_name = str(item_name)

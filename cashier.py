@@ -22,7 +22,7 @@ class Transaction:
         # Define the order table as a list
         order_table = []
 
-        # Define the heade table
+        # Define the  table header
         table_header = ['No','Nama Item','Jumlah Item',
             'Harga/Item','Harga Total']
         order_table.append(table_header)
