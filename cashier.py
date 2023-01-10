@@ -48,6 +48,7 @@ class Transaction:
         # Print out the table using Tabulate module
         print(tabulate(order_table, headers="firstrow"))
     
+
     # Method to add a new key and values to the transaction Dictionary
     def add_item(self, item_name, item_qty, item_price):
         '''
@@ -62,11 +63,18 @@ class Transaction:
         try:
             self.item_qty = int(item_qty)
             self.item_price = int(item_price)
+            try:
+                assert self.item_qty >= 0
+                assert self.item_price >= 0
+            except:
+                print("Tidak dapat menambahkan item. \nJumlah dan harga barang tidak boleh negatif.\n")
             self.order_items[self.item_name] = [self.item_qty, self.item_price]
         except:
             print("Tidak dapat menambahkan item. \nJumlah dan harga item harus berupa angka.\n")
         
         
+
+
     # Method to change the key name of an order item
     def update_item_name(self, item_name, new_item_name):
         '''
@@ -98,9 +106,15 @@ class Transaction:
         self.item_name = str(item_name)
         
         try:
-            self.new_item_qty = int(new_item_qty)
+            self.new_item_qty = int(new_item_qty) # Check if the quantity is a number
+
             try:
-                self.order_items[self.item_name][0] = self.new_item_qty
+                assert self.item_qty >= 0
+            except:
+                print("Tidak dapat memperbarui jumlah. \nJumlah barang tidak boleh negatif.\n")
+            
+            try:
+                self.order_items[self.item_name][0] = self.new_item_qty # Check if item name exists
                 
             except:
                 print("Gagal mengubah jumlah item. \nNama item tidak ditemukan.\n")
@@ -120,9 +134,15 @@ class Transaction:
         self.item_name = str(item_name)
         
         try:
-            self.new_item_price = int(new_item_price)
+            self.new_item_price = int(new_item_price) # Check if the price is a number
+            
             try:
-                self.order_items[self.item_name][1] = self.new_item_price
+                assert self.item_qty >= 0
+            except:
+                print("Tidak dapat memperbarui harga. \nHarga barang tidak boleh negatif.\n")
+            
+            try:
+                self.order_items[self.item_name][1] = self.new_item_price # Check if item name exists
             except:
                 print("Gagal mengubah harga. \nNama item tidak ditemukan.\n")
         except:
@@ -140,7 +160,7 @@ class Transaction:
         '''
         self.item_name = str(item_name)
         try:
-            del self.order_items[self.item_name]
+            del self.order_items[self.item_name] # Check if item name exists
         except:
             print("Gagal menghapus item. \nNama item tidak ditemukan.\n")
         

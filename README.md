@@ -86,6 +86,11 @@ def add_item(self, item_name, item_qty, item_price):
         try:
             self.item_qty = int(item_qty)
             self.item_price = int(item_price)
+            try:
+                assert self.item_qty >= 0
+                assert self.item_price >= 0
+            except:
+                print("Tidak dapat menambahkan item. \nJumlah dan harga barang tidak boleh negatif.\n")
             self.order_items[self.item_name] = [self.item_qty, self.item_price]
         except:
             print("Tidak dapat menambahkan item. \nJumlah dan harga item harus berupa angka.\n")
@@ -149,7 +154,8 @@ def update_item_name(self, item_name, new_item_name):
 Update the name of an item in the list by providing the item name and its new name as the arguments to this method. 
 <br />
 
-This method will give an error message if the item name inputted isn't found in the order list.
+This method will give an error message if:
+- The item name inputted isn't found in the order list
 <br />
 
 ### 5. update_item_qty() Method
@@ -158,9 +164,15 @@ def update_item_qty(self, item_name, new_item_qty):
         self.item_name = str(item_name)
         
         try:
-            self.new_item_qty = int(new_item_qty)
+            self.new_item_qty = int(new_item_qty) # Check if the quantity is a number
+
             try:
-                self.order_items[self.item_name][0] = self.new_item_qty
+                assert self.item_qty >= 0
+            except:
+                print("Tidak dapat memperbarui jumlah. \nJumlah barang tidak boleh negatif.\n")
+            
+            try:
+                self.order_items[self.item_name][0] = self.new_item_qty # Check if item name exists
                 
             except:
                 print("Gagal mengubah jumlah item. \nNama item tidak ditemukan.\n")
@@ -170,27 +182,39 @@ def update_item_qty(self, item_name, new_item_qty):
 Update the quantity of an item in the list by providing the item name and its new quantity as the arguments to this method. 
 <br />
 
-This method will give an error message if the item name inputted isn't found in the order list.
+This method will give an error message if:
+- The item quantity inputted is not an integer
+- The item quantity inputted is negative, less than 0
+- The item name inputted isn't found in the order list.
 <br />
 
 ### 6. update_item_price() Method
 ```python
 def update_item_price(self, item_name, new_item_price):
-    self.item_name = str(item_name)
-    
-    try:
-        self.new_item_price = int(new_item_price)
+        self.item_name = str(item_name)
+        
         try:
-            self.order_items[self.item_name][1] = self.new_item_price
+            self.new_item_price = int(new_item_price) # Check if the price is a number
+            
+            try:
+                assert self.item_qty >= 0
+            except:
+                print("Tidak dapat memperbarui harga. \nHarga barang tidak boleh negatif.\n")
+            
+            try:
+                self.order_items[self.item_name][1] = self.new_item_price # Check if item name exists
+            except:
+                print("Gagal mengubah harga. \nNama item tidak ditemukan.\n")
         except:
-            print("Gagal mengubah harga. \nNama item tidak ditemukan.\n")
-    except:
-        print("Harga item harus berupa angka.\n")
+            print("Harga item harus berupa angka.\n")
 ```
 Update the price of an item in the list by providing the item name and its new item price as the arguments to this method. 
 <br />
 
-This method will give an error message if the item name inputted isn't found in the order list.
+This method will give an error message if:
+- The item price inputted is not an integer
+- The item price inputted is negative, less than 0
+- The item name inputted isn't found in the order list.
 <br />
 
 ### 7. delete_item() Method
@@ -205,7 +229,8 @@ def delete_item(self, item_name):
 Delete an item in the order list by providing the name of the item as the argument to this method. 
 <br />
 
-This method will give an error message if the item name inputted isn't found in the order list.
+This method will give an error message if:
+- The item name inputted isn't found in the order list.
 <br />
 
 ### 8. reset_transaction() Method
@@ -253,7 +278,8 @@ This method will check whether the item inputted into the order list has certain
 It will show a success message if the key and the values of the item is in expected data type.
 <br />
 
-On the other hand, it will show an error message if the key or value of the item is not in certain data type.
+On the other hand, it will show an error message if:
+The key or value of the item is not in certain data type.
 <br />
 
 ### 10. total_price() Method

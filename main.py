@@ -51,3 +51,7 @@ trnsct_123.show_order_table()
 print()
 trnsct_123.total_price()
 print()
+
+trnsct_123.add_item("Motor", -1, -20000)
+trnsct_123.update_item_qty("Ayam Goreng", -1)
+trnsct_123.update_item_price("Ayam Goreng", -20000)
