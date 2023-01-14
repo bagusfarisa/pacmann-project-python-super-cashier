@@ -66,9 +66,9 @@ class Transaction:
             try:
                 assert self.item_qty >= 0
                 assert self.item_price >= 0
+                self.order_items[self.item_name] = [self.item_qty, self.item_price]
             except:
                 print("Tidak dapat menambahkan item. \nJumlah dan harga barang tidak boleh negatif.\n")
-            self.order_items[self.item_name] = [self.item_qty, self.item_price]
         except:
             print("Tidak dapat menambahkan item. \nJumlah dan harga item harus berupa angka.\n")
         
@@ -107,17 +107,14 @@ class Transaction:
         
         try:
             self.new_item_qty = int(new_item_qty) # Check if the quantity is a number
-
             try:
                 assert self.item_qty >= 0
+                try:
+                    self.order_items[self.item_name][0] = self.new_item_qty # Check if item name exists
+                except:
+                    print("Gagal mengubah jumlah item. \nNama item tidak ditemukan.\n")
             except:
                 print("Tidak dapat memperbarui jumlah. \nJumlah barang tidak boleh negatif.\n")
-            
-            try:
-                self.order_items[self.item_name][0] = self.new_item_qty # Check if item name exists
-                
-            except:
-                print("Gagal mengubah jumlah item. \nNama item tidak ditemukan.\n")
         except:
             print("Jumlah item harus berupa angka.\n")
         
@@ -135,19 +132,16 @@ class Transaction:
         
         try:
             self.new_item_price = int(new_item_price) # Check if the price is a number
-            
             try:
                 assert self.item_qty >= 0
+                try:
+                    self.order_items[self.item_name][1] = self.new_item_price # Check if item name exists
+                except:
+                    print("Gagal mengubah harga. \nNama item tidak ditemukan.\n")
             except:
                 print("Tidak dapat memperbarui harga. \nHarga barang tidak boleh negatif.\n")
-            
-            try:
-                self.order_items[self.item_name][1] = self.new_item_price # Check if item name exists
-            except:
-                print("Gagal mengubah harga. \nNama item tidak ditemukan.\n")
         except:
             print("Harga item harus berupa angka.\n")
-        
         
     
     # Method to delete an order item (its key and values)
